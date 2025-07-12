@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meu Portfólio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,15 +10,17 @@
 
   <!-- Cabeçalho -->
   <header class="header">
-    <h1 class="logo">Seu Nome</h1>
+    <div class="logo">Seu Nome</div>
     <nav class="nav">
       <a href="#sobre">Sobre</a>
+      <a href="#habilidades">Habilidades</a>
       <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
     </nav>
+    <button class="menu-toggle">☰</button>
   </header>
 
-  <!-- Seção Sobre -->
+  <!-- Sobre -->
   <section id="sobre" class="secao sobre">
     <div class="container">
       <h2>Sobre Mim</h2>
@@ -26,37 +28,68 @@
     </div>
   </section>
 
-  <!-- Seção Projetos -->
+  <!-- Habilidades -->
+  <section id="habilidades" class="secao habilidades">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Python</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
   <section id="projetos" class="secao projetos">
     <div class="container">
       <h2>Meus Projetos</h2>
       <div class="galeria">
         <div class="projeto">
           <h3>Projeto 1</h3>
-          <p>Descrição breve do projeto 1. Tecnologias utilizadas: HTML, CSS, JavaScript.</p>
+          <p>Descrição breve do projeto 1. Tecnologias: HTML, CSS, JS.</p>
         </div>
         <div class="projeto">
           <h3>Projeto 2</h3>
-          <p>Descrição breve do projeto 2. Tecnologias utilizadas: React, Node.js, MongoDB.</p>
+          <p>Descrição breve do projeto 2. Tecnologias: React, Node.js, MongoDB.</p>
         </div>
         <div class="projeto">
           <h3>Projeto 3</h3>
-          <p>Descrição breve do projeto 3. Tecnologias utilizadas: Python, Django, Bootstrap.</p>
+          <p>Descrição breve do projeto 3. Tecnologias: Python, Django, Bootstrap.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Seção Contato -->
+  <!-- Contato -->
   <section id="contato" class="secao contato">
     <div class="container">
       <h2>Entre em Contato</h2>
-      <p>Você pode me encontrar em:</p>
-      <ul>
-        <li><a href="mailto:seuemail@example.com">Email</a></li>
-        <li><a href="https://github.com/seunome " target="_blank">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/seunome " target="_blank">LinkedIn</a></li>
-      </ul>
+
+      <!-- Mensagem de sucesso/erro -->
+      <div id="mensagem" class="mensagem ocultar"></div>
+
+      <form id="form-contato" action="https://formsubmit.co/seu-email @example.com" method="POST" class="formulario">
+        <!-- Campos ocultos -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_next" value="https://ale130979.github.io/portfolio/#contato">
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Campos do formulário -->
+        <input type="text" name="name" id="name" placeholder="Seu nome" required />
+        <input type="email" name="email" id="email" placeholder="Seu email" required />
+        <textarea name="message" id="message" rows="5" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+
+      <div class="social">
+        <a href="mailto:seuemail@example.com">📧 Email</a>
+        <a href=" https://github.com/seunome " target="_blank">💻 GitHub</a>
+        <a href="https://linkedin.com/in/seunome " target="_blank">💼 LinkedIn</a>
+      </div>
     </div>
   </section>
 
@@ -64,6 +97,8 @@
   <footer class="rodape">
     <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
