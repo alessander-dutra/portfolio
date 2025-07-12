@@ -1,6 +1,4 @@
-# portfolio
-Portfólio
 portfolio/
-│
 ├── index.html
-└── style.css
+├── style.css
+└── script.js (opcional)
