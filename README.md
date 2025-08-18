@@ -36,3 +36,9 @@ portfolio-alessander/
 ├── README.md
 └── LICENSE
 ```
+## 🛠️ Atualizar o site
+
+Execute o script de deploy:
+
+```bash
+./deploy.sh
