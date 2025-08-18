@@ -1,371 +1,327 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alessander Dutra | Portfólio</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background: linear-gradient(45deg, #9600FF, #38ef7d);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      color: white;
-    }
-
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    /* Header */
-    .header {
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      color: white;
-      font-size: 1.5rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        display: none;
-      }
-      .nav.ativo {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    /* Seções */
-    .secao {
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      padding: 40px 20px;
-      margin: 30px auto;
-      max-width: 1000px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-    }
-
-    .skill {
-      background: #e0e0e0;
-      padding: 15px;
-      text-align: center;
-      border-radius: 6px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .projeto {
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      color: #333;
-    }
-
-    /* Formulário */
-    .formulario {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .formulario input,
-    .formulario textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .formulario button {
-      padding: 12px;
-      background: #00ffe7;
-      color: black;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .formulario button:hover {
-      background: #00ccbb;
-      box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-    }
-
-    .social {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .social a {
-      margin: 0 10px;
-      color: #00ffe7;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .social a:hover {
-      text-decoration: underline;
-    }
-
-    /* Rodapé */
-    .rodape {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-    }
-
-    /* Mensagem de sucesso/erro */
-    .mensagem {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 15px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-align: center;
-      transition: opacity 0.4s ease;
-    }
-
-    .mensagem.ocultar {
-      display: none;
-    }
-
-    .mensagem.sucesso {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-
-    .mensagem.erro {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Profissional - Alessander Dutra</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .profile-img {
+            border: 4px solid white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .skill-tag {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            color: white;
+        }
+        .achievement-number {
+            color: #059669;
+            font-weight: 700;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
 </head>
-<body>
-
-  <!-- Cabeçalho -->
-  <header class="header">
-    <div class="logo">Alessander Dutra</div>
-    <nav class="nav">
-      <a href="#sobre">Sobre</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <button class="menu-toggle">☰</button>
-  </header>
-
-  <!-- Sobre -->
-  <section id="sobre" class="secao sobre">
-    <div class="container">
-      <h2>Sobre Mim</h2>
-      <p>Olá! Sou desenvolvedor full-stack apaixonado por tecnologia e design. Tenho experiência em projetos web e estou sempre buscando aprender mais.</p>
-    </div>
-  </section>
-
-  <!-- Habilidades -->
-  <section id="habilidades" class="secao habilidades">
-    <div class="container">
-      <h2>Habilidades</h2>
-      <div class="skills-grid">
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">Python</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projetos -->
-  <section id="projetos" class="secao projetos">
-    <div class="container">
-      <h2>Meus Projetos</h2>
-      <div class="galeria">
-        <div class="projeto">
-          <h3>Projeto 1</h3>
-          <p>Descrição breve do projeto 1. Tecnologias: HTML, CSS, JS.</p>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="gradient-bg text-white py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="mb-8 md:mb-0 md:mr-12">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/crawler_linkedin_profile_thumbnails/9472dae8-6856-3b3a-a5cb-848d5562942d" 
+                         alt="Alessander Dutra" 
+                         class="w-48 h-48 rounded-full profile-img object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-5xl font-bold mb-4">Alessander Dutra</h1>
+                    <h2 class="text-2xl mb-6 opacity-90">Product Manager | Expert em Ciclo de Vida de Produtos Digitais</h2>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-6 text-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>São Paulo, Brasil</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>3.039 seguidores</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>15+ anos de experiência</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="projeto">
-          <h3>Projeto 2</h3>
-          <p>Descrição breve do projeto 2. Tecnologias: React, Node.js, MongoDB.</p>
-        </div>
-        <div class="projeto">
-          <h3>Projeto 3</h3>
-          <p>Descrição breve do projeto 3. Tecnologias: Python, Django, Bootstrap.</p>
-        </div>
-      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Professional Summary -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-user-tie mr-3 text-indigo-600"></i>
+                    Resumo Profissional
+                </h3>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    Sou Product Manager com mais de 15 anos de experiência liderando o ciclo de vida de produtos digitais em ambientes ágeis e de alta complexidade. Atuo com foco em inovação, eficiência operacional e geração de valor ao cliente, integrando tecnologia, dados e experiência do usuário para impulsionar resultados.
+                </p>
+                <br>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    Tenho sólida vivência em meios de pagamento e conformidades como PCI-DSS, além de experiência com produtos em nuvem (AWS, Oracle), ferramentas de dados (Power BI, SQL Server) e estratégias Go-To-Market. Conduzo discovery com uso de IA generativa para acelerar testes de hipóteses, criação de personas e simulações de jornada.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Achievements -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-trophy mr-3 text-yellow-500"></i>
+                    Principais Conquistas
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-green-50 rounded-lg">
+                        <div class="text-4xl font-bold achievement-number mb-2">+30%</div>
+                        <p class="text-gray-700">Aumento na satisfação do cliente com novos produtos</p>
+                    </div>
+                    <div class="text-center p-6 bg-blue-50 rounded-lg">
+                        <div class="text-4xl font-bold achievement-number">25%</div>
+                        <p class="text-gray-700">Redução no tempo de entrega com plataformas low-code</p>
+                    </div>
+                    <div class="text-center p-6 bg-purple-50 rounded-lg">
+                        <div class="text-4xl font-bold achievement-number">98%</div>
+                        <p class="text-gray-700">Taxa de lançamentos sem defeitos com práticas de QA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-cogs mr-3 text-indigo-600"></i>
+                    Competências Principais
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Prompt Engineering com IA Generativa
+                    </span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">IA Generativa: Oportunidades e Considerações para Líderes Empresariais</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Prompt Engineering: Aprenda a Conversar com uma IA Generativa</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">IA Generativa A Evolução da Busca Online Inteligente</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">IA Generativa</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Power BI</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">AWS</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Meios de Pagamento</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">PCI-DSS</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">SQL Server</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Scrum</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Kanban</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Jira</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Confluence</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Oracle Cloud</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Go-To-Market</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Lean Six Sigma</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">ITIL</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">DevOps</span>
+                    <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Management 3.0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-briefcase mr-3 text-indigo-600"></i>
+                    Experiência Profissional
+                </h3>
+                
+                <!-- Current Position -->
+                <div class="mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h4 class="text-2xl font-bold text-gray-800">Product Manager</h4>
+                            <p class="text-xl text-indigo-600 font-semibold">Altec Sistemas e Tecnologia</p>
+                        </div>
+                        <div class="text-gray-600 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>
+                            Jul 2015 - Atualmente (9+ anos)
+                        </div>
+                    </div>
+                    <div class="text-gray-700 leading-relaxed">
+                        <p class="mb-4">Defini e executei estratégia de produto, alinhando stakeholders internos e externos. Principais realizações:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Implantei plataformas low-code, reduzindo o tempo de entrega de funcionalidades em 25%</li>
+                            <li>Gerenciei equipe ágil com 15 profissionais, promovendo autonomia e foco em resultados</li>
+                            <li>Aumentei a adoção do produto em 20% com funcionalidades priorizadas por análise competitiva</li>
+                            <li>Criei mais de 10 dashboards em Power BI, melhorando decisões baseadas em dados em 40%</li>
+                            <li>Implementei processo de QA e testes A/B com taxa de 98% de lançamentos sem defeitos</li>
+                            <li>Conduzi adequação à norma PCI-DSS em projeto de meios de pagamento (Empresa Paggi)</li>
+                            <li>Otimizei infraestrutura em nuvem e on-premise, garantindo uptime de 99,9% e redução de custos em 10%</li>
+                            <li>Implantei Jira e Confluence do zero, reduzindo o tempo de onboarding em 20%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Position -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h4 class="text-2xl font-bold text-gray-800">Gerente de Suporte Técnico e Implantação</h4>
+                            <p class="text-xl text-indigo-600 font-semibold">Altec Sistemas e Tecnologia</p>
+                        </div>
+                        <div class="text-gray-600 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>
+                            Ago 2009 - Jul 2015 (6 anos)
+                        </div>
+                    </div>
+                    <div class="text-gray-700 leading-relaxed">
+                        <p class="mb-4">Liderei operações de suporte técnico e implantação de sistemas. Principais responsabilidades:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Liderança e coordenação das operações diárias do suporte técnico, supervisionando equipe de 10 técnicos</li>
+                            <li>Implementação de melhorias nos fluxos e processos de atendimento do service desk</li>
+                            <li>Desenvolvimento de relatórios operacionais e estratégicos com KPIs</li>
+                            <li>Gerenciamento do desempenho das equipes técnicas e promoção de treinamentos</li>
+                            <li>Planejamento, controle e execução de atividades de implantação</li>
+                            <li>Coordenação com diversas partes interessadas internas e externas</li>
+                            <li>Suporte pós-implantação e monitoramento de aplicações</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-graduation-cap mr-3 text-indigo-600"></i>
+                    Formação Acadêmica
+                </h3>
+                <div class="flex flex-col md:flex-row md:justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-800">Inteligência Artificial e Machine Learning</h4>
+                        <p class="text-xl text-indigo-600 font-semibold">UNIASSELVI - Inteligência Artificial e Machine Learning</p>
+                    </div>
+                    <div class="text-gray-600 font-medium">
+                        <i class="fas fa-calendar mr-2"></i>
+                        2025 - 2027
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-certificate mr-3 text-yellow-500"></i>
+                    Certificações
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">Lean Six Sigma White Belt</h4>
+                        <p class="text-gray-600">Grupo Voitto • 2020</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">Management 3.0</h4>
+                        <p class="text-gray-600">OAT Solutions • 2020</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">Scrum Essentials</h4>
+                        <p class="text-gray-600">Itcerts Inc. • 2019</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">DevOps Foundation</h4>
+                        <p class="text-gray-600">Estabilis • 2018</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">ITIL v3 Foundations</h4>
+                        <p class="text-gray-600">Ka Solution • 2014</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-bold text-gray-800">SQL Server 2012</h4>
+                        <p class="text-gray-600">Ka Solution • 2013</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-pen-fancy mr-3 text-indigo-600"></i>
+                    Publicações
+                </h3>
+                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Principais Tendências para o Futuro da Alimentação em 2025</h4>
+                    <p class="text-gray-600 mb-4">Publicado em maio de 2025</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        O setor de food service em 2025 continua sua trajetória de transformação, impulsionado por mudanças culturais, avanços tecnológicos, hábitos de consumo dos clientes e comportamentos dos colaboradores, ambos cada vez mais exigentes. É um mercado que exige inovação constante, adaptação estratégica e um olhar atento às novas dinâmicas que moldam o trabalho, o consumo e a gestão.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <i class="fas fa-comments mr-3 text-green-500"></i>
+                    Recomendações
+                </h3>
+                <div class="space-y-8">
+                    <div class="p-6 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <p class="text-gray-700 italic mb-4">
+                            "Tive a oportunidade de trabalhar junto com Alessander e durante esse período foram momentos bem interessantes acompanhar a evolução dele nas áreas de Banco de Dados e Produtos. Tivemos boas trocas e ensinei e aprendi muito com ele. Super comprometido com as entregas, interessado em sempre aprender. Grande conhecedor do mercado de tecnologia e automação comercial para Bares e Restaurantes."
+                        </p>
+                        <p class="font-bold text-gray-800">- Andre Ramos</p>
+                    </div>
+                    <div class="p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-gray-700 italic mb-4">
+                            "O Alessander tem muita facilidade com o relacionamento interpessoal, fácil relacionamento com os pares e com o time, sempre muito disposto a ajudar os colegas nas coisas de tecnologia. Sempre disposto a estudar e orientar as pessoas interessadas em aprender. Comprometido e dedicado ao trabalho. Alto astral, divertido, sempre tem uma palavra bacana para ajudar na motivação do time. Profissional que não deixa a empresa na mão na hora que a tecnologia começa a dar problema. Excelente profissional."
+                        </p>
+                        <p class="font-bold text-gray-800">- Vanessa Rodrigues</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
 
-  <!-- Contato -->
-  <section id="contato" class="secao contato">
-    <div class="container">
-      <h2>Entre em Contato</h2>
-
-      <!-- Mensagem de sucesso/erro -->
-      <div id="mensagem" class="mensagem ocultar"></div>
-
-      <form id="form-contato" action="https://formsubmit.co/alessander.dutra.santos @gmail.com" method="POST" class="formulario">
-        <!-- Campos ocultos -->
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_next" value="https://ale130979.github.io/portfolio/#contato">
-        <input type="hidden" name="_captcha" value="false">
-
-        <!-- Campos do formulário -->
-        <input type="text" name="name" id="name" placeholder="Seu nome" required />
-        <input type="email" name="email" id="email" placeholder="Seu email" required />
-        <textarea name="message" id="message" rows="5" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar Mensagem</button>
-      </form>
-
-      <div class="social">
-        <a href="mailto:alessander.dutra.santos@gmail.com">📧 Email</a>
-        <a href=" https://github.com/ale130979 " target="_blank">💻 GitHub</a>
-        <a href="https://linkedin.com/in/alessander-dutra " target="_blank">💼 LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rodapé -->
-  <footer class="rodape">
-    <p>&copy; 2025 Alessander Dutra. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    // Menu responsivo
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('ativo');
-    });
-
-    // Validação e mensagem de formulário
-    document.getElementById('form-contato').addEventListener('submit', function (e) {
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-      const mensagemDiv = document.getElementById('mensagem');
-
-      mensagemDiv.classList.add('ocultar');
-
-      if (!name.value.trim()) {
-        mostrarMensagem('Por favor, preencha seu nome.', 'erro');
-        e.preventDefault();
-        return;
-      }
-
-      if (!email.value.trim() || !isValidEmail(email.value.trim())) {
-        mostrarMensagem('Por favor, insira um e-mail válido.', 'erro');
-        e.preventDefault();
-        return;
-      }
-
-      if (!message.value.trim()) {
-        mostrarMensagem('Por favor, escreva uma mensagem.', 'erro');
-        e.preventDefault();
-        return;
-      }
-
-      mostrarMensagem('Mensagem enviada com sucesso!', 'sucesso');
-    });
-
-    function isValidEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    function mostrarMensagem(texto, tipo) {
-      const mensagemDiv = document.getElementById('mensagem');
-      mensagemDiv.textContent = texto;
-      mensagemDiv.className = 'mensagem ' + tipo;
-      mensagemDiv.classList.remove('ocultar');
-
-      setTimeout(() => {
-        mensagemDiv.classList.add('ocultar');
-      }, 5000);
-    }
-  </script>
-
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="text-lg mb-4">
+                <strong>Alessander Dutra</strong> - Product Manager
+            </p>
+            <p class="opacity-90">
+                Especialista em Ciclo de Vida de Produtos Digitais | IA Generativa | Estratégia Go-To-Market
+            </p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <i><a href="https://linkedin.com/in/alessander-dutra" class="fab fa-linkedin text-2xl"></a></i>
+                <i><a href="mailto:alessander.dutra.santos@gmail.com" class="fas fa-envelope text-2xl"></a></i>
+                <i><a href="https://github.com/ale130979"             class="fab fa-github text-2xl"></a></i>
+                <i><a href="https://wa.me/5511940538426"              class="fas fa-phone text-2xl"></a></i>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
