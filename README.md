@@ -22,7 +22,7 @@ Portfólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
 ---
 
 ## 📁 Estrutura
----
+```
 portfolio-alessander/
 ├── index.html
 ├── css/
@@ -35,4 +35,4 @@ portfolio-alessander/
 ├── .gitignore
 ├── README.md
 └── LICENSE
----
+```
