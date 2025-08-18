@@ -22,8 +22,8 @@ Portfólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
 ---
 
 ## 📁 Estrutura
-portfolio-alessander/
 ---
+portfolio-alessander/
 ├── index.html
 ├── css/
 │   └── style.css
