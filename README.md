@@ -1,13 +1,13 @@
-# Portifólio Profissional - Alessander Dutra
+# Portfolio Profissional - Alessander Dutra
 
-Portifólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
+Portfolio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
 
 🎯 **Product Manager | IA Generativa | Estratégia de Produtos Digitais**
 
 ---
 
 ## 🌐 Visualizar Online
-👉 https://alessander-dutra.github.io/portifólio/
+👉 https://alessander-dutra.github.io/portfolio/
 
 > (Substitua `alessander-dutra` pelo seu nome de usuário do GitHub)
 
@@ -23,7 +23,7 @@ Portifólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
 
 ## 📁 Estrutura
 ```
-portifólio-alessander/
+portfolio-alessander/
 ├── index.html
 ├── css/
 │   └── style.css
