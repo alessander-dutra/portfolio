@@ -1,6 +1,8 @@
+
 /* css/style.css */
 body {
     font-family: 'Inter', sans-serif;
+    /* A cor base é definida pelo Tailwind agora */
     line-height: 1.6;
 }
 
@@ -10,6 +12,10 @@ body {
 
 .card-shadow {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+html.dark .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img {
@@ -25,6 +31,16 @@ body {
 .achievement-number {
     color: #059669;
     font-weight: 700;
+}
+
+html.dark .achievement-number {
+    color: #34d399; /* Um verde mais claro para o modo escuro */
+}
+
+/* Typed.js Cursor Style */
+.typed-cursor {
+    color: white;
+    opacity: 1;
 }
 
 @media print {

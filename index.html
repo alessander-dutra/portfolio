@@ -4,62 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio Profissional - Alessander Dutra</title>
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfólio de Alessander Dutra, Product Manager especialista em ciclo de vida de produtos digitais, IA Generativa e estratégia Go-To-Market.">
+    <meta name="keywords" content="Alessander Dutra, Product Manager, Gerente de Produto, IA Generativa, Go-To-Market, Portfólio, Produtos Digitais, Liderança, Agile, Scrum">
+    <link rel="canonical" href="https://ale130979.github.io/portfolio-alessander/">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ale130979.github.io/portfolio-alessander/">
+    <meta property="og:title" content="Portfólio Profissional - Alessander Dutra">
+    <meta property="og:description" content="Product Manager especialista em ciclo de vida de produtos digitais, IA Generativa e estratégia Go-To-Market.">
+    <meta property="og:image" content="https://ale130979.github.io/portfolio-alessander/assets/img/profile.jpeg"> <!-- Use a URL absoluta da sua imagem -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ale130979.github.io/portfolio-alessander/">
+    <meta property="twitter:title" content="Portfólio Profissional - Alessander Dutra">
+    <meta property="twitter:description" content="Product Manager especialista em ciclo de vida de produtos digitais, IA Generativa e estratégia Go-To-Market.">
+    <meta property="twitter:image" content="https://ale130979.github.io/portfolio-alessander/assets/img/profile.jpeg"> <!-- Use a URL absoluta da sua imagem -->
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
     <!-- Custom CSS -->
+    <!-- Tailwind CSS via CDN (modo 'class' para dark mode). Mantém CSS customizado depois para overrides locais. -->
+    <script>
+        // CDN do Tailwind com configuração via tailwind.config = { darkMode: 'class' }
+        // Nota: em produção recomenda-se compilar com PostCSS para reduzir tamanho.
+        window.tailwind = {
+            config: {
+                darkMode: 'class'
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Evita o "flash" do tema incorreto no carregamento da página
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
     <!-- Header Section -->
-    <header class="gradient-bg text-white py-16">
-        <div class="max-w-6xl mx-auto px-6">
+    <header class="gradient-bg text-white py-10 md:py-16 relative">
+        <div class="max-w-6xl mx-auto px-6 ">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="mb-8 md:mb-0 md:mr-12">
-                    <img src="assets/img/profile2.jpg" 
-                         alt="Foto de Alessander Dutra"
-                         class="w-48 h-48 rounded-full profile-img object-cover">
+                <img src="assets/img/profile2.jpeg" 
+                    alt="Foto de Alessander Dutra"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='assets/img/profile.jpeg';"
+                    class="w-48 h-48 rounded-full profile-img object-cover">
                 </div>
                 <div class="text-center md:text-left">
-                    <h1 class="text-5xl font-bold mb-4">Alessander Dutra</h1>
-                    <h2 class="text-2xl mb-6 opacity-90">Product Manager | Expert em Ciclo de Vida de Produtos Digitais</h2>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Alessander Dutra</h1>
+                    <h2 class="text-2xl mb-6 opacity-90"><span id="typed-subtitle"></span></h2>
                     <div class="flex flex-wrap justify-center md:justify-start gap-6 text-lg">
-                        <div class="flex items-center">
+                        <div class="flex items-center header-info-item">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>São Paulo, Brasil</span>
                         </div>
-                        <div class="flex items-center">
+                        <div class="flex items-center header-info-item">
                             <i class="fas fa-users mr-2"></i>
                             <span>3.355 seguidores</span>
                         </div>
-                        <div class="flex items-center">
+                        <div class="flex items-center header-info-item">
                             <i class="fas fa-calendar-alt mr-2"></i>
                             <span>15+ anos de experiência</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" aria-label="Alternar tema claro e escuro" class="absolute top-6 right-6 p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white">
+                <i id="theme-toggle-dark-icon" class="fas fa-moon text-xl hidden"></i>
+                <i id="theme-toggle-light-icon" class="fas fa-sun text-xl hidden"></i>
+            </button>
         </div>
     </header>
 
-    <div class="max-w-6xl mx-auto px-6 py-12">
+    <main class="max-w-6xl mx-auto px-6 py-12 ">
         <!-- Professional Summary -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
                     <i class="fas fa-user-tie mr-3 text-indigo-600"></i>
                     Resumo Profissional
                 </h3>
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                     Sou Product Manager com mais de 15 anos de experiência liderando o ciclo de vida de produtos digitais em ambientes ágeis e de alta complexidade. Atuo com foco em inovação, eficiência operacional e geração de valor ao cliente, integrando tecnologia, dados e experiência do usuário para impulsionar resultados.
                 </p>
                 <br>
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                     Tenho sólida vivência em meios de pagamento e conformidades como PCI-DSS, além de experiência com produtos em nuvem (AWS, Oracle), ferramentas de dados (Power BI, SQL Server) e estratégias Go-To-Market. Conduzo discovery com uso de IA generativa para acelerar testes de hipóteses, criação de personas e simulações de jornada.
                 </p>
             </div>
@@ -67,23 +123,23 @@
 
         <!-- Key Achievements -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-trophy mr-3 text-yellow-500"></i>
                     Principais Conquistas
                 </h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 bg-green-50 rounded-lg">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-green-50 dark:bg-green-900/50 rounded-lg">
                         <div class="text-4xl font-bold achievement-number mb-2">+30%</div>
-                        <p class="text-gray-700">Aumento na satisfação do cliente com novos produtos</p>
+                        <p class="text-gray-700 dark:text-gray-300">Aumento na satisfação do cliente com novos produtos</p>
                     </div>
-                    <div class="text-center p-6 bg-blue-50 rounded-lg">
+                    <div class="text-center p-6 bg-blue-50 dark:bg-blue-900/50 rounded-lg">
                         <div class="text-4xl font-bold achievement-number">25%</div>
-                        <p class="text-gray-700">Redução no tempo de entrega com plataformas low-code</p>
+                        <p class="text-gray-700 dark:text-gray-300">Redução no tempo de entrega com plataformas low-code</p>
                     </div>
-                    <div class="text-center p-6 bg-purple-50 rounded-lg">
+                    <div class="text-center p-6 bg-purple-50 dark:bg-purple-900/50 rounded-lg">
                         <div class="text-4xl font-bold achievement-number">98%</div>
-                        <p class="text-gray-700">Taxa de lançamentos sem defeitos com práticas de QA</p>
+                        <p class="text-gray-700 dark:text-gray-300">Taxa de lançamentos sem defeitos com práticas de QA</p>
                     </div>
                 </div>
             </div>
@@ -91,8 +147,8 @@
 
         <!-- Core Competencies -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-cogs mr-3 text-indigo-600"></i>
                     Competências Principais
                 </h3>
@@ -128,25 +184,25 @@
 
         <!-- Professional Experience -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-briefcase mr-3 text-indigo-600"></i>
                     Experiência Profissional
                 </h3>
                 
                 <!-- Current Position -->
-                <div class="mb-12 pb-12 border-b border-gray-200">
+                <div class="mb-12 pb-12 border-b border-gray-200 dark:border-gray-700">
                     <div class="flex flex-col md:flex-row md:justify-between mb-4">
                         <div>
-                            <h4 class="text-2xl font-bold text-gray-800">Product Manager</h4>
+                            <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Product Manager</h4>
                             <p class="text-xl text-indigo-600 font-semibold">Altec Sistemas e Tecnologia</p>
                         </div>
-                        <div class="text-gray-600 font-medium">
+                        <div class="text-gray-600 dark:text-gray-400 font-medium">
                             <i class="fas fa-calendar mr-2"></i>
                             Jul 2015 - Atualmente (9+ anos)
                         </div>
                     </div>
-                    <div class="text-gray-700 leading-relaxed">
+                    <div class="text-gray-700 dark:text-gray-300 leading-relaxed">
                         <p class="mb-4">Defini e executei estratégia de produto, alinhando stakeholders internos e externos. Principais realizações:</p>
                         <ul class="list-disc ml-6 space-y-2">
                             <li>Implantei plataformas low-code, reduzindo o tempo de entrega de funcionalidades em 25%</li>
@@ -165,15 +221,15 @@
                 <div>
                     <div class="flex flex-col md:flex-row md:justify-between mb-4">
                         <div>
-                            <h4 class="text-2xl font-bold text-gray-800">Gerente de Suporte Técnico e Implantação</h4>
+                            <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Gerente de Suporte Técnico e Implantação</h4>
                             <p class="text-xl text-indigo-600 font-semibold">Altec Sistemas e Tecnologia</p>
                         </div>
-                        <div class="text-gray-600 font-medium">
+                        <div class="text-gray-600 dark:text-gray-400 font-medium">
                             <i class="fas fa-calendar mr-2"></i>
                             Ago 2009 - Jul 2015 (6 anos)
                         </div>
                     </div>
-                    <div class="text-gray-700 leading-relaxed">
+                    <div class="text-gray-700 dark:text-gray-300 leading-relaxed">
                         <p class="mb-4">Liderei operações de suporte técnico e implantação de sistemas. Principais responsabilidades:</p>
                         <ul class="list-disc ml-6 space-y-2">
                             <li>Liderança e coordenação das operações diárias do suporte técnico, supervisionando equipe de 10 técnicos</li>
@@ -191,17 +247,17 @@
 
         <!-- Education -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-graduation-cap mr-3 text-indigo-600"></i>
                     Formação Acadêmica
                 </h3>
                 <div class="flex flex-col md:flex-row md:justify-between">
                     <div>
-                        <h4 class="text-2xl font-bold text-gray-800">Inteligência Artificial e Machine Learning</h4>
+                        <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Inteligência Artificial e Machine Learning</h4>
                         <p class="text-xl text-indigo-600 font-semibold">UNIASSELVI - Inteligência Artificial e Machine Learning</p>
                     </div>
-                    <div class="text-gray-600 font-medium">
+                    <div class="text-gray-600 dark:text-gray-400 font-medium">
                         <i class="fas fa-calendar mr-2"></i>
                         2025 - 2027
                     </div>
@@ -211,100 +267,99 @@
 
         <!-- Certifications -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-certificate mr-3 text-yellow-500"></i>
                     Certificações
                 </h3>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Lovable Workshop</h4>
-                        <p class="text-gray-600">PM3 • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Lovable Workshop</h4>
+                        <p class="text-gray-600 dark:text-gray-400">PM3 • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Descubra a Inteligência Artificial Generativa</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Descubra a Inteligência Artificial Generativa</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">
-IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">IA Generativa: Oportunidades e Considerações para Líderes Empresariais</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">IA Generativa: Oportunidades e Considerações para Líderes Empresariais</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Otimize seu Trabalho com o Microsoft Copilot</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Otimize seu Trabalho com o Microsoft Copilot</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Prompt Engineering: Aprenda a Conversar com uma IA Generativa</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Prompt Engineering: Aprenda a Conversar com uma IA Generativa</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">IA Generativa: a Evolução da Busca Online Inteligente</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">IA Generativa: a Evolução da Busca Online Inteligente</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">IA Generativa Prompt Engineering</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">IA Generativa Prompt Engineering</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">IA Generativa: Oportunidade e Considerações para Líderes Empresariais</h4>
-                        <p class="text-gray-600">LinkedIn • 2025</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">IA Generativa: Oportunidade e Considerações para Líderes Empresariais</h4>
+                        <p class="text-gray-600 dark:text-gray-400">LinkedIn • 2025</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Formação em Liderança</h4>
-                        <p class="text-gray-600">Escola Conquer • 2024</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Formação em Liderança</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Escola Conquer • 2024</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Agile Project Management</h4>
-                        <p class="text-gray-600">Universidade Presbiteriana Mackenzie • 2023</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Agile Project Management</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Universidade Presbiteriana Mackenzie • 2023</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Kanban e Scrum</h4>
-                        <p class="text-gray-600">International Scrum Institute™ (Scrum Institute) • 2020</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Kanban e Scrum</h4>
+                        <p class="text-gray-600 dark:text-gray-400">International Scrum Institute™ (Scrum Institute) • 2020</p>
                     </div>           
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Lean Six Sigma White Belt</h4>
-                        <p class="text-gray-600">Grupo Voitto • 2020</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Lean Six Sigma White Belt</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Grupo Voitto • 2020</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Management 3.0</h4>
-                        <p class="text-gray-600">OAT Solutions • 2020</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Management 3.0</h4>
+                        <p class="text-gray-600 dark:text-gray-400">OAT Solutions • 2020</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">Scrum Essentials</h4>
-                        <p class="text-gray-600">Itcerts Inc. • 2019</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">Scrum Essentials</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Itcerts Inc. • 2019</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">DevOps Foundation</h4>
-                        <p class="text-gray-600">Estabilis • 2018</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">DevOps Foundation</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Estabilis • 2018</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">ITIL v3 Foundations</h4>
-                        <p class="text-gray-600">Ka Solution • 2014</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">ITIL v3 Foundations</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Ka Solution • 2014</p>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <h4 class="font-bold text-gray-800">SQL Server 2012</h4>
-                        <p class="text-gray-600">Ka Solution • 2013</p>
+                    <div class="p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-white">SQL Server 2012</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Ka Solution • 2013</p>
                     </div>
                 </div>
             </div>
-        </section>
+    </section>
 
-                <!-- Publications -->
-        <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+    <!-- Publications -->
+    <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-pen-fancy mr-3 text-indigo-600"></i>
                     Publicações
                 </h3>
-                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                    <h4 class="text-xl font-bold text-gray-800 mb-2">Explorando o Universo do Machine Learning</h4>
-                    <p class="text-gray-600 mb-4">Publicado em setembro de 2025</p> <a href="https://notebooklm.google.com/notebook/afc377f1-2806-440f-9183-7a4a359badfc" class="fab fa-leanpub text-2xl hover:text-blue-300"></a>
-                    <p class="text-gray-700 leading-relaxed">
+                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/50 dark:to-indigo-900/50 rounded-lg">
+                    <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Explorando o Universo do Machine Learning</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Publicado em setembro de 2025</p> <a href="https://notebooklm.google.com/notebook/afc377f1-2806-440f-9183-7a4a359badfc" aria-label="Ler publicação sobre Machine Learning" target="_blank" rel="noopener noreferrer" class="fab fa-leanpub text-2xl hover:text-blue-300"></a>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                         visão abrangente do Aprendizado de Máquina (ML), definindo-o como um subcampo da Inteligência Artificial (IA) que capacita computadores a aprender a partir de dados sem programação explícita, frequentemente usando modelos matemáticos para previsões. O fluxo de trabalho de um projeto de ML é detalhado, abrangendo desde a coleta e preparação de dados (incluindo tratamento de dados estruturados e não estruturados, e técnicas como imputação e engenharia de características) até o treinamento do modelo, avaliação e implantação (incluindo MLOps). Diferentes tipos de ML são explicados, como o supervisionado (com dados rotulados para tarefas como classificação e regressão), não supervisionado (para encontrar padrões em dados sem rótulo, como clustering) e por reforço (baseado em feedback de ações no ambiente). Além disso, as aplicações práticas do ML em diversos setores são destacadas, como em logística, diagnóstico médico, otimização de processos e prevenção de manutenção, ao mesmo tempo que se discute a importância da ética e justiça nos algoritmos de ML.
                     </p>
                 </div>
@@ -313,15 +368,15 @@ IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética</h4
 
         <!-- Publications -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-pen-fancy mr-3 text-indigo-600"></i>
                     Publicações
                 </h3>
-                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                    <h4 class="text-xl font-bold text-gray-800 mb-2">Principais Tendências para o Futuro da Alimentação em 2025</h4>
-                    <p class="text-gray-600 mb-4">Publicado em maio de 2025</p>
-                    <p class="text-gray-700 leading-relaxed">
+                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/50 dark:to-indigo-900/50 rounded-lg">
+                    <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Principais Tendências para o Futuro da Alimentação em 2025</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Publicado em maio de 2025</p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                         O setor de food service em 2025 continua sua trajetória de transformação, impulsionado por mudanças culturais, avanços tecnológicos, hábitos de consumo dos clientes e comportamentos dos colaboradores, ambos cada vez mais exigentes. É um mercado que exige inovação constante, adaptação estratégica e um olhar atento às novas dinâmicas que moldam o trabalho, o consumo e a gestão.
                     </p>
                 </div>
@@ -330,40 +385,74 @@ IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética</h4
 
         <!-- Recommendations -->
         <section class="mb-16">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
                     <i class="fas fa-comments mr-3 text-green-500"></i>
                     Recomendações
                 </h3>
                 <div class="space-y-8">
-                    <div class="p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                        <p class="text-gray-700 italic mb-4">
+                    <div class="p-6 bg-yellow-50 dark:bg-yellow-900/50 rounded-lg border-l-4 border-yellow-500">
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
                             "Trabalhar ao lado do Alessander foi uma experiência extremamente enriquecedora. Ele é um profissional que consegue unir visão estratégica e execução impecável.<br><br>
                             Durante o tempo em que colaboramos, vi de perto como ele transformou desafios complexos em soluções práticas e escaláveis, sempre mantendo o time engajado e motivado. Sua liderança impulsionou resultados concretos, além de promover uma cultura ágil e colaborativa.<br><br>
                             Mais do que um Gerente de Produtos, Alessander é um líder inspirador, que conecta pessoas, dados e processos para gerar valor real ao negócio. É alguém em quem se pode confiar para guiar times, criar estratégias inovadoras e entregar resultados consistentes."
                         </p>
-                        <p class="font-bold text-gray-800">- Chrystiane C. G. Jajácomo Aoki</p>
+                        <p class="font-bold text-gray-800 dark:text-white">- Chrystiane C. G. Jajácomo Aoki</p>
                     </div>
-                    <div class="p-6 bg-green-50 rounded-lg border-l-4 border-green-500">
-                        <p class="text-gray-700 italic mb-4">
+                    <div class="p-6 bg-green-50 dark:bg-green-900/50 rounded-lg border-l-4 border-green-500">
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
                             "Tive a oportunidade de trabalhar junto com Alessander e durante esse período foram momentos bem interessantes acompanhar a evolução dele nas áreas de Banco de Dados e Produtos.<br><br>
                             Tivemos boas trocas e ensinei e aprendi muito com ele. Super comprometido com as entregas, interessado em sempre aprender.<br><br>
                             Grande conhecedor do mercado de tecnologia e automação comercial para Bares e Restaurantes."
                         </p>
-                        <p class="font-bold text-gray-800">- Andre Ramos</p>
+                        <p class="font-bold text-gray-800 dark:text-white">- Andre Ramos</p>
                     </div>
-                    <div class="p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                        <p class="text-gray-700 italic mb-4">
+                    <div class="p-6 bg-blue-50 dark:bg-blue-900/50 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
                             "O Alessander tem muita facilidade com o relacionamento interpessoal, fácil relacionamento com os pares e com o time, sempre muito disposto a ajudar os colegas nas coisas de tecnologia.<br><br>
                             Sempre disposto a estudar e orientar as pessoas interessadas em aprender. Comprometido e dedicado ao trabalho. Alto astral, divertido, sempre tem uma palavra bacana para ajudar na motivação do time.<br><br>
                             Profissional que não deixa a empresa na mão na hora que a tecnologia começa a dar problema. Excelente profissional."
                         </p>
-                        <p class="font-bold text-gray-800">- Vanessa Rodrigues</p>
+                        <p class="font-bold text-gray-800 dark:text-white">- Vanessa Rodrigues</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
+
+    <!-- Contact Form -->
+    <section class="mb-16">
+        <div class="bg-white dark:bg-gray-800 rounded-lg card-shadow p-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 flex items-center">
+                <i class="fas fa-paper-plane mr-3 text-indigo-600"></i>
+                Entre em Contato
+            </h3>
+            <!-- Substitua a URL abaixo pela URL do seu formulário Formspree -->
+            <form action="https://formspree.io/f/mdkwdqro" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome</label>
+                    <input type="text" name="name" id="name" required
+                           class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                    <input type="email" name="email" id="email" required
+                           class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mensagem</label>
+                    <textarea name="message" id="message" rows="5" required
+                              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit"
+                            class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                        Enviar Mensagem
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="gradient-bg text-white py-8 text-center">
@@ -375,13 +464,24 @@ IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética</h4
                 Especialista em Ciclo de Vida de Produtos Digitais | IA Generativa | Estratégia Go-To-Market
             </p>
             <div class="mt-6 flex justify-center space-x-6">
-                <a href="https://notebooklm.google.com/notebook/afc377f1-2806-440f-9183-7a4a359badfc" class="fab fa-leanpub text-2xl hover:text-blue-300"></a>
-                <a href="https://linkedin.com/in/alessander-dutra" class="fab fa-linkedin text-2xl hover:text-blue-300"></a>
-                <a href="mailto:alessander.dutra.santos@gmail.com" class="fas fa-envelope text-2xl hover:text-blue-300"></a>
-                <a href="https://github.com/ale130979" class="fab fa-github text-2xl hover:text-blue-300"></a>
-                <a href="https://wa.me/5511940538426" class="fab fa-whatsapp text-2xl hover:text-blue-300"></a>
+                <a href="https://notebooklm.google.com/notebook/afc377f1-2806-440f-9183-7a4a359badfc" aria-label="Ver minhas publicações no Leanpub" class="fab fa-leanpub text-2xl hover:text-blue-300 transition-colors"></a>
+                <a href="https://linkedin.com/in/alessander-dutra" aria-label="Visitar meu perfil no LinkedIn" class="fab fa-linkedin text-2xl hover:text-blue-300 transition-colors"></a>
+                <a href="mailto:alessander.dutra.santos@gmail.com" aria-label="Enviar um e-mail" class="fas fa-envelope text-2xl hover:text-blue-300 transition-colors"></a>
+                <a href="https://github.com/ale130979" aria-label="Ver meus projetos no GitHub" class="fab fa-github text-2xl hover:text-blue-300 transition-colors"></a>
+                <a href="https://wa.me/5511940538426" aria-label="Entrar em contato pelo WhatsApp" class="fab fa-whatsapp text-2xl hover:text-blue-300 transition-colors"></a>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top-btn" aria-label="Voltar ao topo" 
+       class="fixed bottom-8 right-8 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </a>
+
+    <!-- Custom JS -->
+    <!-- Typed.js for typing animation -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
